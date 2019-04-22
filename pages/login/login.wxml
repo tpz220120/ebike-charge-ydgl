@@ -1,0 +1,22 @@
+<view class="login-back">
+    <view class="login">
+      <view class="login-title">
+        智 慧 用 能
+      </view>
+      <view class="login-user">用户名</view>
+      <view>
+          <input bindinput="bindKeyInputPhone" class="weui-input" placeholder="请输入用户名"/>
+      </view>
+      <view class="login-line"></view>
+      
+      <view class="login-user">密码：</view>
+      <view class="weui-flex">
+        <view><input class="weui-input" bindinput="bindKeyInputYzm" password placeholder="请输入密码"/></view>
+        <view  class="row-margin-left">
+          <image src="/image/login-pas.png" style="height:8px;width:17px"/>
+        </view>
+     </view>
+      <view class="login-line"></view>
+      <view class="login-btn" bindtap="bindPhone_submit">登录</view>
+    </view>
+</view>

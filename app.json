@@ -1,0 +1,61 @@
+{
+  "pages": [
+    "pages/plan/plan",
+    "pages/login/login",
+    "pages/analyse/analyse",
+    "pages/plan/selTree/selTree",
+    "pages/control/control",
+    "pages/main/main_map",
+    "pages/plan/plan_add",
+    "pages/main/main",
+    "pages/main/main_user",
+    "pages/main/mainlist/mainlist",
+    "pages/alarm/alarm"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#7F94FF",
+    "navigationBarTitleText": "用能管理"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "tabBar": {
+    "selectedColor": "#3399FF",
+    "list": [
+      {
+        "pagePath": "pages/main/main_user",
+        "text": "首页",
+        "iconPath": "image/main_off.png",
+        "selectedIconPath": "image/main_on.png"
+      },
+      {
+        "pagePath": "pages/plan/plan",
+        "text": "用能计划",
+        "iconPath": "image/plan_off.png",
+        "selectedIconPath": "image/plan_on.png"
+      },
+      {
+        "pagePath": "pages/control/control",
+        "text": "用电管控",
+        "iconPath": "image/control_off.png",
+        "selectedIconPath": "image/control_on.png"
+      },
+      {
+        "pagePath": "pages/analyse/analyse",
+        "text": "数据分析",
+        "iconPath": "image/analyse_off.png",
+        "selectedIconPath": "image/analyse_on.png"
+      },
+      {
+        "pagePath": "pages/alarm/alarm",
+        "text": "告警",
+        "iconPath": "image/alarm_off.png",
+        "selectedIconPath": "image/alarm_on.png"
+      }
+    ]
+  }
+}

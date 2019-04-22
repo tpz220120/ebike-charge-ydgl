@@ -1,0 +1,91 @@
+<view class="page">
+  <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm="confirm" />
+          <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+          <icon class="weui-icon-search" type="search" size="14" color="#3399FF"></icon>
+          <view class="weui-search-bar__text">根据充电站名称搜索</view>
+        </label>
+      </view>
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+      <view class="search-img" ontap="goList">
+        <image src="/image/main-list.png" style="width:20px;height:20px;" mode="scaleToFill" />
+      </view>
+  </view>
+  <view class="map_container">
+    <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}"      show-location="true" markers="{{markers}}" bindmarkertap="markertap"
+        scale="{{scale}}"
+        controls="{{controls}}"
+        bindcontroltap="controltap"
+        bindregionchange="regionchange"
+        bindtap="tap"
+        style="width: 100%; height:{{mainHeight}}"
+    >
+    <cover-view class="controls" wx:if="{{tipshow2==='1'}}">
+        <cover-view  class="weui-flex title">
+          <cover-view class="tip-txt">
+              浙江移动大楼
+          </cover-view>
+          <cover-view class="link-img" bindtap="goDetail" data-id="123">
+              <cover-image src="/image/detail-link.png" style="width:20px;height:15px;"mode="scaleToFill"/>
+          </cover-view>
+        </cover-view>
+
+        <cover-view  class="detail">
+          <cover-view class="d-col3 weui-flex">
+            <cover-view>
+                管控执行状态：
+            </cover-view>
+            <cover-view class="d-col2">
+                不正常
+            </cover-view>
+          </cover-view>
+          <cover-view class="d-col-img">
+              <cover-image src="/image/detail-phone.png" style="width:11px;height:12px;"mode="scaleToFill"/>
+          </cover-view>
+          <cover-view>
+              0571-55886699
+          </cover-view>
+        </cover-view>
+
+        <cover-view  class="detail">
+          <cover-view class="d-col-img">
+              <cover-image src="/image/detail-addr.png" style="width:11px;height:12px;"mode="scaleToFill"/>
+          </cover-view>
+          <cover-view>
+              松江悟空路300号,松江悟空路300号松江悟空路300号
+          </cover-view>
+        </cover-view>
+
+        <cover-view  class="detail">
+          <cover-view class="d-col3 detail_flex">
+            <cover-view>
+                实时功率：
+            </cover-view>
+            <cover-view class="d-col">
+                87
+            </cover-view>
+            <cover-view>
+                kW
+            </cover-view>
+          </cover-view>
+          <cover-view>
+              实时功率：
+          </cover-view>
+          <cover-view class="d-col">
+              43215
+          </cover-view>
+          <cover-view>
+              kW
+          </cover-view>
+        </cover-view>
+      </cover-view>
+    </map>
+  </view>
+</view>

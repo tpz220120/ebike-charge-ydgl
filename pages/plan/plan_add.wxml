@@ -1,0 +1,92 @@
+<view class="page">
+  <view class="col-sel ui_flex" bindtap="goSel">
+      <view>
+        当前对象：
+      </view>
+      <view class="sel_td">
+        {{sel_name}}
+      </view>
+      <view>
+        <image src="/image/add_down.png" style="width:15px;height:9px;" />
+      </view>
+  </view>
+  <view class="line"></view>
+
+  <view class="col-detail">
+      <view>
+        启停时间设置
+      </view>
+      <view class="col-title ui_flex">
+        <view>
+          <image src="/image/add_title.png" style="width:4px;height:12px;" />
+        </view>
+        <view class="txt">
+          时间和状态
+        </view>
+      </view>
+      <view class="col-title ui_flex">
+        <view class="col-blank">
+          选择时间：
+        </view>
+        <view class="col-time ui_flex">
+              <view class="td1">
+                <picker mode="time" value="{{time}}" start="00:00" end="23:59"      bindchange="bindTimeChange">
+                        <view class="time">{{time}}</view>
+                 </picker>
+              </view>
+              <view class="td2 ui_flex" >
+                <image src="/image/add_interval.png" style="width:1px;height:28px;" />
+              </view>
+              <view class="ui_flex">
+                <image src="/image/add_time.png" style="width:17px;height:17px;" />
+              </view>
+        </view>
+      </view>
+      <view class="col-title ui_flex">
+        <view class="col-blank">
+          启停状态：
+        </view>
+        <view class="col-status ui_flex">
+           <view class="ui_flex" data-flag="1" bindtap="changeStatus">
+              <view class="ui_flex">
+                  <image src="{{status=='1'?'/image/add_open.png':'/image/add_close.png'}}" style="width:15px;height:15px;" />
+              </view>
+              <view class="status_txt">
+                  开启
+              </view>
+           </view>
+           <view class="ui_flex" data-flag="0" bindtap="changeStatus">
+            <view class="ui_flex">
+               <image src="{{status=='0'?'/image/add_open.png':'/image/add_close.png'}}" style="width:15px;height:15px;" />
+            </view>
+            <view class="status_txt">
+                关闭
+            </view>
+           </view>
+        </view>
+      </view>
+      
+      <view class="col-title ui_flex">
+        <view>
+          <image src="/image/add_title.png" style="width:4px;height:12px;" />
+        </view>
+        <view class="txt">
+          重复\每周
+        </view>
+      </view>
+
+      <view class="col-title col_flex">
+        <view wx:for="{{weeks}}" wx:key="{{value}}">
+          <view class="col_week {{item.checked?'week_sel':'week_nosel'}}" data-checked="{{item.checked}}" data-index="{{index}}" bindtap="week_sel">
+            {{item.name}}
+          </view>
+        </view>
+      </view>
+  </view>
+
+  <view class="col_btn">
+      <view class="btn">
+          保存
+      </view>
+  </view>
+</view>

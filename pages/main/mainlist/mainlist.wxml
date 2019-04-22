@@ -1,0 +1,199 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm="confirm" />
+          <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+          <icon class="weui-icon-search" type="search" size="14" color="#3399FF"></icon>
+          <view class="weui-search-bar__text">根据充电站名称搜索</view>
+        </label>
+      </view>
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+
+      <view class="search-img" ontap="goMain">
+        <image src="/image/list-map.png" style="width:25px;height:25px;" mode="scaleToFill" />
+      </view>
+    </view>
+  </view>
+
+  <view class="main_lb">      
+      <view class="main_st weui-flex">
+          <view class="padding10">
+              <image src="/image/list-map.png" style="width:77px;height:92px;" mode="scaleToFill" />
+          </view>
+          <view class="padding10 main_detail">
+                <view class="weui-flex">
+                    <view class="title">
+                      浙江移动大厦
+                    </view>
+                    <view class="flex-center" bindtap="goUserMain" data-id="124" data-name="test">
+                      <image src="/image/list-link.png" style="width:9px;height:15px;" mode="scaleToFill" />
+                    </view>
+                </view>
+
+                <view class="weui-flex top10">
+                    <view class="w50 flex_bottom">
+                      <view>
+                        管控收益：
+                      </view>
+                      <view class="col-1">
+                        133
+                      </view>
+                      <view>
+                        元
+                      </view>
+                    </view>
+                    <view class="w50 flex_bottom">
+                      <view>
+                        实时负荷：
+                      </view>
+                      <view class="col-1">
+                        20
+                      </view>
+                      <view>
+                        kW
+                      </view>
+                    </view>
+                </view>
+                 <view class="weui-flex top4">
+                    <view class="w50 flex_bottom">
+                      <view>
+                        当日用电：
+                      </view>
+                      <view class="col-1">
+                        321
+                      </view>
+                      <view>
+                        kWh
+                      </view>
+                    </view>
+                    <view class="w50 flex_bottom">
+                      <view>
+                         当月用电：
+                      </view>
+                      <view class="col-1">
+                        5341
+                      </view>
+                      <view>
+                        kWh
+                      </view>
+                    </view>
+                </view>
+                 <view class="weui-flex top4">
+                    <view class="w50 flex_bottom">
+                      <view>
+                        当年用电：
+                      </view>
+                      <view class="col-1">
+                        42165
+                      </view>
+                      <view>
+                        kWh
+                      </view>
+                    </view>
+                    <view class="w50 flex-center">
+                      <view>
+                        管控执行：
+                      </view>
+                      
+                      <view>
+                        <image src="/image/list-zc.png" style="width:35px;height:17px;" mode="scaleToFill" />
+                      </view>
+                    </view>
+                </view>
+          </view>
+      </view>
+      <view class="main_st weui-flex">
+          <view class="padding10">
+              <image src="/image/list-map.png" style="width:77px;height:92px;" mode="scaleToFill" />
+          </view>
+          <view class="padding10 main_detail">
+                <view class="weui-flex">
+                    <view class="title">
+                      浙江移动大厦
+                    </view>
+                    <view class="flex-center">
+                      <image src="/image/list-link.png" style="width:9px;height:15px;" mode="scaleToFill" />
+                    </view>
+                </view>
+
+                <view class="weui-flex top10">
+                    <view class="w50 flex_bottom">
+                      <view>
+                        管控收益：
+                      </view>
+                      <view class="col-1">
+                        133
+                      </view>
+                      <view>
+                        元
+                      </view>
+                    </view>
+                    <view class="w50 flex_bottom">
+                      <view>
+                        实时负荷：
+                      </view>
+                      <view class="col-1">
+                        20
+                      </view>
+                      <view>
+                        kW
+                      </view>
+                    </view>
+                </view>
+                 <view class="weui-flex top4">
+                    <view class="w50 flex_bottom">
+                      <view>
+                        当日用电：
+                      </view>
+                      <view class="col-1">
+                        321
+                      </view>
+                      <view>
+                        kWh
+                      </view>
+                    </view>
+                    <view class="w50 flex_bottom">
+                      <view>
+                         当月用电：
+                      </view>
+                      <view class="col-1">
+                        5341
+                      </view>
+                      <view>
+                        kWh
+                      </view>
+                    </view>
+                </view>
+                 <view class="weui-flex top4">
+                    <view class="w50 flex_bottom">
+                      <view>
+                        当年用电：
+                      </view>
+                      <view class="col-1">
+                        42165
+                      </view>
+                      <view>
+                        kWh
+                      </view>
+                    </view>
+                    <view class="w50 flex-center">
+                      <view>
+                        管控执行：
+                      </view>
+                      
+                      <view>
+                        <image src="/image/list-yc.png" style="width:35px;height:17px;" mode="scaleToFill" />
+                      </view>
+                    </view>
+                </view>
+          </view>
+      </view>
+  </view>
+</view>

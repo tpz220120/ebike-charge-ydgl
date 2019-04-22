@@ -1,0 +1,162 @@
+<view class="page">
+  <view class="weui-search-bar">
+    <view class="weui-search-bar__form">
+      <view class="weui-search-bar__box">
+        <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+        <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm="confirm" />
+        <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+          <icon type="clear" size="14"></icon>
+        </view>
+      </view>
+      <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+        <icon class="weui-icon-search" type="search" size="14" color="#3399FF"></icon>
+        <view class="weui-search-bar__text">输入对象名称搜索</view>
+      </label>
+    </view>
+    <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+  </view>
+  <view class="line"></view>
+  <view class="weui-tab">
+    <view class="weui-navbar">
+      <view class="blank">
+      </view>
+      <block wx:for="{{tabs}}" wx:key="*this">
+        <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+          <view class="weui-navbar__title">{{item}}</view>
+        </view>
+      </block>
+      <view class="blank2" bindtap="addControl">
+        <image src="/image/add.png" style="width:20px;height:20px;" />
+      </view>
+      <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+    </view>
+    <view class="weui-tab__panel">
+      <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+        <view class="item-text">
+          <view wx:if="{{wcount == 0}}">
+            <view class="re-center">
+              <view class="nor-img">
+                <image src="/image/no-record-yxs.png" style="width:180px;height:190px;" />
+              </view>
+              <view class="nor-text">暂无开启计划</view>
+            </view>
+          </view>
+          <view wx:if="{{wcount != 0}}">
+            <view class="yz_flex col-title">
+                <view class="col-1">
+                  对象
+                </view>
+                <view class="col-2">
+                  周
+                </view>
+                <view class="col-3">
+                  开启时间
+                </view>
+              </view>
+            <view class="line"></view>
+            <view class="items">
+              <view wx:for="{{winfo}}" wx:key="{{id}}" class="item">
+                <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" class="inner txt flex_line" style="{{item.txtStyle}}">
+                  <view class="col-1">
+                    {{item.p_name}}
+                  </view>
+                  <view class="col-2 flex_line">
+                    <view wx:if="{{item.week1 == '1'}}" class="col-btn">
+                      星期一
+                    </view>
+                    <view wx:if="{{item.week2 == '1'}}" class="col-btn">
+                      星期二
+                    </view>
+                    <view wx:if="{{item.week3 == '1'}}" class="col-btn">
+                      星期三
+                    </view>
+                    <view wx:if="{{item.week4 == '1'}}" class="col-btn">
+                      星期四
+                    </view>
+                    <view wx:if="{{item.week5 == '1'}}" class="col-btn">
+                      星期五
+                    </view>
+                    <view wx:if="{{item.week6 == '1'}}" class="col-btn">
+                      星期六
+                    </view>
+                    <view wx:if="{{item.week7 == '1'}}" class="col-btn">
+                      星期日
+                    </view>
+                  </view>
+                  <view class="col-3">
+                    {{item.onoff_time}}
+                  </view>
+                </view>
+                <view data-index="{{index}}" data-type="{{kq}}" data-id="{{item.id}}" 
+                bindtap="delItem" class="inner del">删除</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+        <view class="item-text">
+          <view wx:if="{{ycount == 0}}">
+            <view class="re-center">
+              <view class="nor-img">
+                <image src="/image/no-record-yxs.png" style="width:180px;height:190px;" />
+              </view>
+              <view class="nor-text">暂无关闭计划</view>
+            </view>
+          </view>
+          <view wx:if="{{ycount != 0}}">
+            <view class="yz_flex col-title">
+              <view class="col-1">
+                对象
+              </view>
+              <view class="col-2">
+                周
+              </view>
+              <view class="col-3">
+                关闭时间
+              </view>
+            </view>
+            <view class="line"></view>
+            <view class="items">
+              <view wx:for="{{yinfo}}" wx:key="{{id}}" class="item">
+                <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" class="inner txt flex_line" style="{{item.txtStyle}}">
+                  <view class="col-1">
+                    {{item.p_name}}
+                  </view>
+                  <view class="col-2 flex_line">
+                    <view wx:if="{{item.week1 == '1'}}" class="col-btn">
+                      星期一
+                    </view>
+                    <view wx:if="{{item.week2 == '1'}}" class="col-btn">
+                      星期二
+                    </view>
+                    <view wx:if="{{item.week3 == '1'}}" class="col-btn">
+                      星期三
+                    </view>
+                    <view wx:if="{{item.week4 == '1'}}" class="col-btn">
+                      星期四
+                    </view>
+                    <view wx:if="{{item.week5 == '1'}}" class="col-btn">
+                      星期五
+                    </view>
+                    <view wx:if="{{item.week6 == '1'}}" class="col-btn">
+                      星期六
+                    </view>
+                    <view wx:if="{{item.week7 == '1'}}" class="col-btn">
+                      星期日
+                    </view>
+                  </view>
+                  <view class="col-3">
+                    {{item.onoff_time}}
+                  </view>
+                </view>
+                <view data-index="{{index}}" data-type="{{gb}}" data-id="{{item.id}}" 
+                bindtap="delItem" class="inner del">删除</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

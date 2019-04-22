@@ -1,0 +1,121 @@
+<view class="page">
+    <view class="main_st weui-flex">
+      <view class="padding10">
+        <image src="/image/list-map.png" style="width:77px;height:92px;" mode="scaleToFill" />
+      </view>
+      <view class="padding10 main_detail">
+        <view class="weui-flex">
+          <view class="w50 flex-center">
+            <view>
+              管控执行：
+            </view>
+
+            <view class="flex-center">
+              <image src="/image/list-zc.png" style="width:35px;height:17px;" mode="scaleToFill" />
+            </view>
+          </view>
+          <view class="w50 flex_bottom">
+            <view>
+              管控收益：
+            </view>
+
+            <view class="col-1">
+              133
+            </view>
+            <view class="col-2">
+              元
+            </view>
+          </view>
+        </view>
+        <view class="weui-flex">
+          <view class="w50 flex_bottom">
+            <view>
+              今日用电：
+            </view>
+
+            <view class="col-1">
+              56
+            </view>
+            <view class="col-2">
+              kWh
+            </view>
+          </view>
+          <view class="w50 flex_bottom">
+            <view>
+              实时功率：
+            </view>
+
+            <view class="col-1">
+             56
+            </view>
+            <view class="col-2">
+              kW
+            </view>
+          </view>
+        </view>
+
+        <view class="weui-flex">
+          <view class="main_detail flex_bottom">
+            <view>
+              变压器容量：
+            </view>
+
+            <view class="col-1">
+              133
+            </view>
+            <view class="col-2">
+              kWp
+            </view>
+          </view>
+        </view>
+        <view class="weui-flex">
+          <view class="main_detail flex-center top4">
+            <view class="flex-center margin20">
+               <image src="/image/detail-addr.png" style="width:11px;height:12px;" mode="scaleToFill" />
+            </view>
+
+            <view>
+              松江悟空路300号,松江悟空路300号
+            </view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+    <view class="main_cdqk">
+      <view class="main_cdqk_text">
+          <view class="margin10">
+            电站建设情况
+          </view>
+      </view>
+      <view>
+      <ec-canvas id="mychart-dom-bar2" canvas-id="mychart-bar2" ec="{{ec}}"></ec-canvas>
+      </view>
+    </view>
+
+    <view class="main_cdqk">
+      <view class="main_cdqk_text">
+          <view class="margin10">
+            实时负荷
+          </view>
+
+          <view class="selType main-flex">
+              <view class="sel {{type == 'day'? 'hover':''}}" data-type="day" ontap="reLine">
+                    日
+              </view>
+              <view class="line">
+              </view>
+              <view class="sel {{type == 'month'? 'hover':''}}" data-type="month" ontap="reLine">
+                    月
+              </view>
+              <view class="line"></view>
+              <view class="sel {{type == 'year'? 'hover':''}}" data-type="year" ontap="reLine">
+                    年
+              </view>
+          </view>
+      </view>
+      <view>
+      <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ecLine}}"></ec-canvas>
+      </view>
+    </view>
+</view>

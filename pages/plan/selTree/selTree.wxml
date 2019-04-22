@@ -1,0 +1,19 @@
+<view class="page">
+  <view class="ui_flex tip">
+    <view>
+      请选择带
+    </view>
+    <view class="tip_img ui_flex">
+      <image src="/image/tree_point.png" style="width:15px;height:15px;" />
+    </view>
+    <view>
+      标记的用能点节点
+    </view>
+  </view>
+  <view class="line">
+  </view>
+  <block wx:for="{{treeData}}" wx:key='id'>
+    <mytree model='{{item}}' bind:tapitem='tapItem'></mytree>
+    <view class="tree_line"></view>
+  </block>
+</view>

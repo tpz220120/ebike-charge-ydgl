@@ -1,0 +1,42 @@
+.flex{
+  display: flex;
+  align-items: center;
+}
+
+.tree_h{
+  height:100rpx;
+}
+
+.tree_image{
+  margin-left:10px;
+  margin-right:5px;
+}
+
+.tree_blank{
+  width:15px;
+}
+
+.tree_line{
+  height:1px;
+  background-color: #F3F3F3;
+}
+
+.tree_1{
+  padding-left: 50rpx;
+}
+
+.tree_2{
+  padding-left: 100rpx;
+}
+
+.tree_3{
+  padding-left: 150rpx;
+}
+
+.tree_4{
+  padding-left: 200rpx;
+}
+
+.tree_5{
+  padding-left: 250rpx;
+}

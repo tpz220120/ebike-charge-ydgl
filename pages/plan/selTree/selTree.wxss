@@ -1,0 +1,17 @@
+.page{
+  font-size:15px;
+  font-family:MicrosoftYaHei;
+  font-weight:400;
+  color:rgba(50,50,50,1);
+}
+
+.tip{
+  margin-left:30rpx;
+  height:60rpx;
+}
+
+.tip_img{
+  margin-left:5px;
+  margin-right:5px;
+}
+

@@ -1,0 +1,160 @@
+<view>
+  <view>
+     <image src="/image/main_banner.png" style="width:100%;height:150px;" mode="scaleToFill" />
+  </view>
+
+  <view class="flex">
+     <view class="title" data-type="home" bindtap="goP">
+          <view class="flex">
+            <image src="/image/main_home.png" style="width:28px;height:25px;" mode="scaleToFill" />
+          </view>
+          <view class="title_txt">
+             首页
+          </view>
+     </view>
+     <view class="title" data-type="user" bindtap="goP">
+          <view class="flex">
+            <image src="/image/main_user.png" style="width:28px;height:25px;" mode="scaleToFill" />
+          </view>
+          <view class="title_txt">
+             用户列表
+          </view>
+     </view>
+     <view class="title" data-type="analyse" bindtap="goP">
+          <view class="flex">
+            <image src="/image/main_analyse.png" style="width:28px;height:25px;" mode="scaleToFill" />
+          </view>
+          <view class="title_txt">
+             运营分析
+          </view>
+     </view>
+     <view class="title" data-type="alarm" bindtap="goP">
+          <view class="flex">
+            <image src="/image/alarm_on.png" style="width:28px;height:25px;" mode="scaleToFill" />
+          </view>
+          <view class="title_txt">
+             告警
+          </view>
+     </view>
+  </view>
+  <view class="line">
+  </view>
+
+  <view class="stat">
+      <view class="flex ">
+        <view class="wd70">
+          概览
+        </view>
+        <view class="wd30">
+          {{date}}
+        </view>
+      </view>
+      <view class="flex stat_1">
+        <view class="wd33 flex_line">
+          <view class="stat_img">
+              <image src="/image/main_users.png" style="width:27px;height:27px;" mode="scaleToFill" />
+          </view>
+          <view >
+              <view class="stat_num">
+                213
+              </view>
+              <view>
+                  用户数量(个)
+              </view>
+          </view>
+        </view>
+        <view class="wd33  flex_line">
+          <view class="stat_img">
+              <image src="/image/main_fhqx.png" style="width:27px;height:27px;" mode="scaleToFill" />
+          </view>
+          <view >
+              <view class="stat_num">
+                2134
+              </view>
+              <view>
+                  最高负荷(kWh)
+              </view>
+          </view>
+        </view>
+        <view class="wd33 flex_line">
+          <view class="stat_img">
+              <image src="/image/main_account.png" style="width:27px;height:27px;" mode="scaleToFill" />
+          </view>
+          <view >
+              <view class="stat_num">
+                3000
+              </view>
+              <view>
+                  管控收益(元)
+              </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="flex">
+        <view class="wd33 flex_line">
+          <view class="stat_img">
+              <image src="/image/main_day.png" style="width:27px;height:27px;" mode="scaleToFill" />
+          </view>
+          <view >
+              <view class="stat_num">
+                213
+              </view>
+              <view>
+                  当日用电(kWh)
+              </view>
+          </view>
+        </view>
+        <view class="wd33  flex_line">
+          <view class="stat_img">
+              <image src="/image/main_month.png" style="width:27px;height:27px;" mode="scaleToFill" />
+          </view>
+          <view >
+              <view class="stat_num">
+                2134
+              </view>
+              <view>
+                  当月用电(kWh)
+              </view>
+          </view>
+        </view>
+        <view class="wd33 flex_line">
+          <view class="stat_img">
+              <image src="/image/main_year.png" style="width:27px;height:27px;" mode="scaleToFill" />
+          </view>
+          <view >
+              <view class="stat_num">
+                3002
+              </view>
+              <view>
+                  当年用电(kWh)
+              </view>
+          </view>
+        </view>
+      </view>
+  </view>
+  <view class="line">
+  </view>
+  <view class="main_cdqk">
+      <view class="main_cdqk_text">
+          <view class="margin10">
+            实时负荷
+          </view>
+      </view>
+      <view class="container">
+        <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ecLine}}"></ec-canvas>
+      </view>
+  </view>
+  <view class="line">
+  </view>
+  <view class="main_cdqk">
+      <view class="main_cdqk_text">
+          <view class="margin10">
+            管控收益趋势
+          </view>
+      </view>
+      <view class="container">
+        <ec-canvas id="mychart-dom-bar2" canvas-id="mychart-bar2" ec="{{ecLine2}}"></ec-canvas>
+      </view>
+  </view>
+</view>
