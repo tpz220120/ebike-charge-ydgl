@@ -55,8 +55,8 @@
               </view>
             <view class="line"></view>
             <view class="items">
-              <view wx:for="{{winfo}}" wx:key="{{id}}" class="item">
-                <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" class="inner txt flex_line" style="{{item.txtStyle}}">
+              <view wx:for="{{winfo}}" wx:key="{{id}}" class="item" bindtap="showDetail" data-id="{{item.id}}">
+                <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" data-type="kq" class="inner txt flex_line" style="{{item.txtStyle}}">
                   <view class="col-1">
                     {{item.p_name}}
                   </view>
@@ -87,7 +87,7 @@
                     {{item.onoff_time}}
                   </view>
                 </view>
-                <view data-index="{{index}}" data-type="{{kq}}" data-id="{{item.id}}" 
+                <view data-index="{{index}}" data-type="kq" data-id="{{item.id}}" 
                 bindtap="delItem" class="inner del">删除</view>
               </view>
             </view>
@@ -118,8 +118,8 @@
             </view>
             <view class="line"></view>
             <view class="items">
-              <view wx:for="{{yinfo}}" wx:key="{{id}}" class="item">
-                <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" class="inner txt flex_line" style="{{item.txtStyle}}">
+              <view wx:for="{{yinfo}}" wx:key="{{id}}" class="item" bindtap="showDetail" data-id="{{item.id}}">
+                <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" data-type="gb" class="inner txt flex_line" style="{{item.txtStyle}}">
                   <view class="col-1">
                     {{item.p_name}}
                   </view>
@@ -150,7 +150,7 @@
                     {{item.onoff_time}}
                   </view>
                 </view>
-                <view data-index="{{index}}" data-type="{{gb}}" data-id="{{item.id}}" 
+                <view data-index="{{index}}" data-type="gb" data-id="{{item.id}}" 
                 bindtap="delItem" class="inner del">删除</view>
               </view>
             </view>

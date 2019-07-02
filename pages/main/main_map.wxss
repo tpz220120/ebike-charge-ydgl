@@ -79,6 +79,9 @@ page {
 
 .d-col2{
   margin-right:53px;
+  
+}
+.red{
   color:#FF3434;
 }
 

@@ -53,6 +53,11 @@
    color:rgba(255,255,255,1);
 }
 
+.selall_blank{
+   width:50px;
+   height:23px;
+}
+
 .col-btn{
    width:40px;
    height:23px;
@@ -94,7 +99,7 @@
 }
 
 .col-2{
-  width:45%;
+  width:42%;
 }
 
 .col-3{
@@ -102,7 +107,7 @@
 }
 
 .col-4{
-  width:15%;
+  width:18%;
   display: flex;
   align-items: center;
   justify-content: center;

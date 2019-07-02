@@ -30,9 +30,9 @@
     <cover-view class="controls" wx:if="{{tipshow2==='1'}}">
         <cover-view  class="weui-flex title">
           <cover-view class="tip-txt">
-              浙江移动大楼
+              {{info.name}}
           </cover-view>
-          <cover-view class="link-img" bindtap="goDetail" data-id="123">
+          <cover-view class="link-img" bindtap="goDetail">
               <cover-image src="/image/detail-link.png" style="width:20px;height:15px;"mode="scaleToFill"/>
           </cover-view>
         </cover-view>
@@ -42,9 +42,16 @@
             <cover-view>
                 管控执行状态：
             </cover-view>
-            <cover-view class="d-col2">
+            <block wx:if="{{info.events >0}}">
+              <cover-view class="d-col2 red">
                 不正常
-            </cover-view>
+              </cover-view>
+            </block>
+            <block wx:if="{{info.events <=0}}">
+              <cover-view class="d-col2">
+                正常
+              </cover-view>
+            </block>
           </cover-view>
           <cover-view class="d-col-img">
               <cover-image src="/image/detail-phone.png" style="width:11px;height:12px;"mode="scaleToFill"/>
@@ -59,30 +66,30 @@
               <cover-image src="/image/detail-addr.png" style="width:11px;height:12px;"mode="scaleToFill"/>
           </cover-view>
           <cover-view>
-              松江悟空路300号,松江悟空路300号松江悟空路300号
+              {{info.addr}}
           </cover-view>
         </cover-view>
 
         <cover-view  class="detail">
           <cover-view class="d-col3 detail_flex">
             <cover-view>
-                实时功率：
+                最高负荷：
             </cover-view>
             <cover-view class="d-col">
-                87
+                {{info.ssfh}}
             </cover-view>
             <cover-view>
                 kW
             </cover-view>
           </cover-view>
           <cover-view>
-              实时功率：
+              当日用电量：
           </cover-view>
           <cover-view class="d-col">
-              43215
+              {{info.ydl_day}}
           </cover-view>
           <cover-view>
-              kW
+              kWh
           </cover-view>
         </cover-view>
       </cover-view>

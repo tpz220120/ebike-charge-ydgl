@@ -4,14 +4,6 @@
   </view>
 
   <view class="flex">
-     <view class="title" data-type="home" bindtap="goP">
-          <view class="flex">
-            <image src="/image/main_home.png" style="width:28px;height:25px;" mode="scaleToFill" />
-          </view>
-          <view class="title_txt">
-             首页
-          </view>
-     </view>
      <view class="title" data-type="user" bindtap="goP">
           <view class="flex">
             <image src="/image/main_user.png" style="width:28px;height:25px;" mode="scaleToFill" />
@@ -56,10 +48,10 @@
           </view>
           <view >
               <view class="stat_num">
-                213
+                 {{yhs}}
               </view>
               <view>
-                  用户数量(个)
+                  用户数量（个）
               </view>
           </view>
         </view>
@@ -69,10 +61,10 @@
           </view>
           <view >
               <view class="stat_num">
-                2134
+                {{zgfh}}
               </view>
               <view>
-                  最高负荷(kWh)
+                  最高负荷（kW）
               </view>
           </view>
         </view>
@@ -82,10 +74,10 @@
           </view>
           <view >
               <view class="stat_num">
-                3000
+                {{gksy}}
               </view>
               <view>
-                  管控收益(元)
+                  管控收益（元）
               </view>
           </view>
         </view>
@@ -98,10 +90,10 @@
           </view>
           <view >
               <view class="stat_num">
-                213
+                {{ydl_day}}
               </view>
               <view>
-                  当日用电(kWh)
+                  当日用电（kWh）
               </view>
           </view>
         </view>
@@ -111,10 +103,10 @@
           </view>
           <view >
               <view class="stat_num">
-                2134
+                {{ydl_month}}
               </view>
               <view>
-                  当月用电(kWh)
+                  当月用电（kWh）
               </view>
           </view>
         </view>
@@ -124,10 +116,10 @@
           </view>
           <view >
               <view class="stat_num">
-                3002
+                {{ydl_year}}
               </view>
               <view>
-                  当年用电(kWh)
+                  当年用电（kWh）
               </view>
           </view>
         </view>
@@ -138,7 +130,7 @@
   <view class="main_cdqk">
       <view class="main_cdqk_text">
           <view class="margin10">
-            实时负荷
+            实时负荷（kW）
           </view>
       </view>
       <view class="container">
@@ -150,7 +142,7 @@
   <view class="main_cdqk">
       <view class="main_cdqk_text">
           <view class="margin10">
-            管控收益趋势
+            管控收益趋势（元）
           </view>
       </view>
       <view class="container">

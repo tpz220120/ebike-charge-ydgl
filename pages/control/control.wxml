@@ -25,10 +25,17 @@
           <view class="weui-navbar__title">{{item}}</view>
         </view>
       </block>
-      <view class="blank">
-        <view class="selall">
-          一键断开
-        </view>
+      <view class="blank" bindtap="doAction" data-type="1">
+        <block wx:if="{{activeIndex == 0}}">
+          <view class="selall">
+              一键断开
+          </view>
+        </block>
+        <block wx:if="{{activeIndex != 0}}">
+          <view class="selall_blank">
+              
+          </view>
+        </block>
       </view>
       <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
     </view>
@@ -49,7 +56,7 @@
                 对象
               </view>
               <view class="col-2">
-                时间内容
+                事件内容
               </view>
               <view class="col-3">
                 发生时间
@@ -59,28 +66,23 @@
               </view>
             </view>
             <view class="line2"></view>
-            <block wx:for="{{items}}" wx:key="txt">
+            <block wx:for="{{winfo}}" wx:key="id">
               <view class="yz_flex col-detail">
                 <view class="col-1">
-                  2F开水器
+                  {{item.p_name}}
                 </view>
                 <view class="col-2">
-                  {{item.txt}}
+                  <block wx:if="{{item.event_type == '1'}}">
+                    停用期间开启运行
+                  </block>
                 </view>
                 <view class="col-3">
-                  2019-04-10 22：00
+                  {{item.event_time}}
                 </view>
-                <view class="col-4">
-                  <block wx:if="{{item.kqbz == '1'}}">
-                    <view class="col-btn col-green">
-                      开启
-                    </view>
-                  </block>
-                  <block wx:if="{{item.kqbz == '0'}}">
+                <view class="col-4" bindtap="doAction" data-type="0" data-id="{{item.id}}">
                     <view class="col-btn col-red">
                       断开
                     </view>
-                  </block>
                 </view>
               </view>
               <view class="line2"></view>
@@ -95,7 +97,7 @@
               <view class="nor-img">
                 <image src="/image/no-record-yxs.png" style="width:180px;height:190px;" />
               </view>
-              <view class="nor-text">暂无已执行管控事件</view>
+              <view class="nor-text">暂无未执行管控事件</view>
             </view>
           </view>
           <view wx:if="{{ycount != 0}}">
@@ -104,29 +106,34 @@
                 对象
               </view>
               <view class="col-2">
-                时间内容
+                事件内容
               </view>
               <view class="col-3">
                 发生时间
               </view>
               <view class="col-4">
-                操作员
+                操作
               </view>
             </view>
             <view class="line2"></view>
-            <block wx:for="{{items}}" wx:key="txt">
+            <block wx:for="{{yinfo}}" wx:key="id">
               <view class="yz_flex col-detail">
                 <view class="col-1">
-                  2F开水器
+                  {{item.p_name}}
                 </view>
                 <view class="col-2">
-                  {{item.txt}}
+                  <block wx:if="{{item.recovery_type == '1'}}">
+                    停用期间关闭运行
+                  </block>
+                  <block wx:elif="{{item.recovery_type == '2'}}">
+                    进入启用期间
+                  </block>
                 </view>
                 <view class="col-3">
-                  2019-04-10 22：00
+                  {{item.recovery_time}}
                 </view>
                 <view class="col-4">
-                  {{item.name}}
+                      {{item.handler}}
                 </view>
               </view>
               <view class="line2"></view>

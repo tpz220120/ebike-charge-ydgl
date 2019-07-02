@@ -1,14 +1,14 @@
 {
   "pages": [
-    "pages/plan/plan",
     "pages/login/login",
-    "pages/analyse/analyse",
-    "pages/plan/selTree/selTree",
-    "pages/control/control",
-    "pages/main/main_map",
-    "pages/plan/plan_add",
     "pages/main/main",
     "pages/main/main_user",
+    "pages/control/control",
+    "pages/plan/plan",
+    "pages/analyse/analyse",
+    "pages/plan/selTree/selTree",
+    "pages/main/main_map",
+    "pages/plan/plan_add",
     "pages/main/mainlist/mainlist",
     "pages/alarm/alarm"
   ],
@@ -18,7 +18,7 @@
     "navigationBarTitleText": "用能管理"
   },
   "networkTimeout": {
-    "request": 10000,
+    "request": 20000,
     "connectSocket": 10000,
     "uploadFile": 10000,
     "downloadFile": 10000
@@ -57,5 +57,6 @@
         "selectedIconPath": "image/alarm_on.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

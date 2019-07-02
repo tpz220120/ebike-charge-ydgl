@@ -22,28 +22,27 @@
     </view>
   </view>
 
-  <view class="main_lb">      
-      <view class="main_st weui-flex">
+  <view class="main_lb"> 
+      <view wx:if="{{icount > 0}}" class="main_st weui-flex">
           <view class="padding10">
-              <image src="/image/list-map.png" style="width:77px;height:92px;" mode="scaleToFill" />
+              <image src="/image/building.jpg" style="width:77px;height:92px;" mode="scaleToFill" />
           </view>
-          <view class="padding10 main_detail">
+          <view wx:for="{{info}}" wx:key="id" class="padding10 main_detail">
                 <view class="weui-flex">
                     <view class="title">
-                      浙江移动大厦
+                      {{item.name}}
                     </view>
-                    <view class="flex-center" bindtap="goUserMain" data-id="124" data-name="test">
+                    <view class="flex-center" bindtap="goUserMain" data-id="{{item.id}}" data-name="{{item.name}}">
                       <image src="/image/list-link.png" style="width:9px;height:15px;" mode="scaleToFill" />
                     </view>
                 </view>
-
                 <view class="weui-flex top10">
                     <view class="w50 flex_bottom">
                       <view>
                         管控收益：
                       </view>
                       <view class="col-1">
-                        133
+                        {{item.gksy}} 
                       </view>
                       <view>
                         元
@@ -54,7 +53,7 @@
                         实时负荷：
                       </view>
                       <view class="col-1">
-                        20
+                        {{item.ssfh}} 
                       </view>
                       <view>
                         kW
@@ -67,7 +66,7 @@
                         当日用电：
                       </view>
                       <view class="col-1">
-                        321
+                        {{item.ydl_day}} 
                       </view>
                       <view>
                         kWh
@@ -78,7 +77,7 @@
                          当月用电：
                       </view>
                       <view class="col-1">
-                        5341
+                        {{item.ydl_month}} 
                       </view>
                       <view>
                         kWh
@@ -91,7 +90,7 @@
                         当年用电：
                       </view>
                       <view class="col-1">
-                        42165
+                        {{item.ydl_year}} 
                       </view>
                       <view>
                         kWh
@@ -101,95 +100,8 @@
                       <view>
                         管控执行：
                       </view>
-                      
                       <view>
-                        <image src="/image/list-zc.png" style="width:35px;height:17px;" mode="scaleToFill" />
-                      </view>
-                    </view>
-                </view>
-          </view>
-      </view>
-      <view class="main_st weui-flex">
-          <view class="padding10">
-              <image src="/image/list-map.png" style="width:77px;height:92px;" mode="scaleToFill" />
-          </view>
-          <view class="padding10 main_detail">
-                <view class="weui-flex">
-                    <view class="title">
-                      浙江移动大厦
-                    </view>
-                    <view class="flex-center">
-                      <image src="/image/list-link.png" style="width:9px;height:15px;" mode="scaleToFill" />
-                    </view>
-                </view>
-
-                <view class="weui-flex top10">
-                    <view class="w50 flex_bottom">
-                      <view>
-                        管控收益：
-                      </view>
-                      <view class="col-1">
-                        133
-                      </view>
-                      <view>
-                        元
-                      </view>
-                    </view>
-                    <view class="w50 flex_bottom">
-                      <view>
-                        实时负荷：
-                      </view>
-                      <view class="col-1">
-                        20
-                      </view>
-                      <view>
-                        kW
-                      </view>
-                    </view>
-                </view>
-                 <view class="weui-flex top4">
-                    <view class="w50 flex_bottom">
-                      <view>
-                        当日用电：
-                      </view>
-                      <view class="col-1">
-                        321
-                      </view>
-                      <view>
-                        kWh
-                      </view>
-                    </view>
-                    <view class="w50 flex_bottom">
-                      <view>
-                         当月用电：
-                      </view>
-                      <view class="col-1">
-                        5341
-                      </view>
-                      <view>
-                        kWh
-                      </view>
-                    </view>
-                </view>
-                 <view class="weui-flex top4">
-                    <view class="w50 flex_bottom">
-                      <view>
-                        当年用电：
-                      </view>
-                      <view class="col-1">
-                        42165
-                      </view>
-                      <view>
-                        kWh
-                      </view>
-                    </view>
-                    <view class="w50 flex-center">
-                      <view>
-                        管控执行：
-                      </view>
-                      
-                      <view>
-                        <image src="/image/list-yc.png" style="width:35px;height:17px;" mode="scaleToFill" />
+                        <image src="{{item.events > 0 ? '/image/list-yc.png' :'/image/list-zc.png'}}" style="width:35px;height:17px;" mode="scaleToFill" />
                       </view>
                     </view>
                 </view>

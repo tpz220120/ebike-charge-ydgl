@@ -41,7 +41,7 @@ Page({
   onLoad: function () {
     var that = this;
     this.initEleWidth();
-    this.tempData();
+    //this.tempData();
     wx.getSystemInfo({
       success: function (res) {
         that.setData({
@@ -53,10 +53,10 @@ Page({
     });
   },
   onShow() {
-    getPlan("");
+    this.getPlan("");
   },
 
-  getPlan: function (name){
+  getPlan:function (name){
     var that = this;
     wx.showLoading();
     wx.request({
@@ -125,12 +125,23 @@ Page({
       }
       //获取手指触摸的是哪一项
       var index = e.currentTarget.dataset.index;
-      var list = this.data.list;
-      list[index].txtStyle = txtStyle;
-      //更新列表的状态
-      this.setData({
-        list: list
-      });
+      var type = e.currentTarget.dataset.type;
+      var list;
+
+      if(type == 'kq'){
+        list = this.data.winfo;
+        list[index].txtStyle = txtStyle;
+        //更新列表的状态
+        this.setData({
+          winfo: list
+        });
+      }else{
+        list = this.data.yinfo;
+        list[index].txtStyle = txtStyle;
+        this.setData({
+          yinfo: list
+        });
+      }
     }
   },
   touchE: function (e) {
@@ -144,12 +155,24 @@ Page({
       var txtStyle = disX > delBtnWidth / 2 ? "left:-" + delBtnWidth + "px" : "left:0px";
       //获取手指触摸的是哪一项
       var index = e.currentTarget.dataset.index;
-      var list = this.data.list;
-      list[index].txtStyle = txtStyle;
-      //更新列表的状态
-      this.setData({
-        list: list
-      });
+      var type = e.currentTarget.dataset.type;
+      var list;
+
+      if (type == 'kq') {
+        list = this.data.winfo;
+        list[index].txtStyle = txtStyle;
+        //更新列表的状态
+        this.setData({
+          winfo: list
+        });
+      } else {
+        list = this.data.yinfo;
+        list[index].txtStyle = txtStyle;
+        this.setData({
+          yinfo: list
+        });
+      }
+     
     }
   },
   //获取元素自适应后的实际宽度
@@ -174,6 +197,7 @@ Page({
   },
   //点击删除按钮事件
   delItem: function (e) {
+    var that = this;
     wx.showModal({
       title: '提示',
       content: '确定要删除计划吗？',
@@ -189,25 +213,25 @@ Page({
               id: id
             },
             success: (re) => {
-              console.log(re.data);
+              console.log(re);
               if (re.data.status == 'success') {
                 if (type == 'kq') {
-                  var list = this.data.winfo;
+                  var list = that.data.winfo;
                   //移除列表中下标为index的项
                   list.splice(index, 1);
                   //更新列表的状态
-                  this.setData({
+                  that.setData({
                     winfo: list,
-                    wcount: this.data.wcount - 1
+                    wcount: that.data.wcount - 1
                   });
                 } else {
-                  var list = this.data.yinfo;
+                  var list = that.data.yinfo;
                   //移除列表中下标为index的项
                   list.splice(index, 1);
                   //更新列表的状态
-                  this.setData({
+                  that.setData({
                     yinfo: list,
-                    ycount: this.data.ycount - 1
+                    ycount: that.data.ycount - 1
                   });
                 }
               } else {
@@ -233,31 +257,9 @@ Page({
     })
   },
   //测试临时数据
-  tempData: function () {
-    var list = [
-      {
-        txtStyle: "",
-        icon: "/image/add.png",
-        txt: "向左滑动可以删除"
-      },
-      {
-        txtStyle: "",
-        icon: "/image/add.png",
-        txt: "微信小程序|联盟（wxapp-union.com）"
-      },
-      {
-        txtStyle: "",
-        icon: "/image/add.png",
-        txt: "圣诞老人是爸爸，顺着烟囱往下爬，礼物塞满圣诞袜，平安糖果一大把"
-      },
-      {
-        txtStyle: "",
-        icon: "/image/add.png",
-        txt: "圣诞到来，元旦还会远吗？在圣诞这个日子里"
-      }
-    ];
-    this.setData({
-      list: list
-    });
+  showDetail: function (e) {
+    wx.navigateTo({
+      url: 'plan_add?id=' + e.currentTarget.dataset.id,
+    })
   }
 });

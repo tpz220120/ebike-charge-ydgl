@@ -84,7 +84,7 @@
       </view>
   </view>
 
-  <view class="col_btn">
+  <view class="col_btn" bindtap="savePlan">
       <view class="btn">
           保存
       </view>

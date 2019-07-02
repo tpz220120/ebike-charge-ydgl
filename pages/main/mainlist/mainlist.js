@@ -3,7 +3,9 @@ Page({
   data: {
     inputShowed: false,
     inputVal: "",
-    stList: [],
+    info: [],
+    icount:0
+
   },
   showInput: function () {
     this.setData({
@@ -47,44 +49,31 @@ Page({
   },
 
   showStlist(name, sfsx) {
-    // wx.showLoading({
-    //   title: '正在加载中',
-    // })
-    // let that = this;
-    // wx.request({
-    //   url: app.httpUrl + '/yysTab/getYysStationList.x', // 该url是自己的服务地址，实现的功能是服务端拿到authcode去开放平台进行token验证
-    //   data: {
-    //     org_no: app.globalData.user_org_no,
-    //     name: name,
-    //     limit: 99,// 99个站点
-    //     sfpt: app.globalData.sfpt,
-    //     inType:''
-    //   },
-    //   success: (re) => {
-    //     console.log(re);
-    //     var stList = re.data.stlist;
-    //     for (var i = 0; i < stList.length; i++) {
-    //       stList[i].up = '';
-    //       var devDate = stList[i].devList;
-    //       for (var j = 0; j < devDate.length;j++){
-    //         devDate[j].showts = '';
-    //       }
-    //       var meterDate = stList[i].meterList;
-    //       for (var k = 0; k < meterDate.length; k++) {
-    //         meterDate[k].showdnb = '';
-    //       }
-    //     }
+    wx.showLoading({
+      title: '正在加载中',
+    })
+    let that = this;
+    wx.request({
+      url: app.httpUrl + '/cust/getCustList.x', // 该url是自己的服务地址，实现的功能是服务端拿到authcode去开放平台进行token验证
+      data: {
+        org_no: app.globalData.user_org_no,
+        name: name,
+        limit: 99// 99个站点
+      },
+      success: (re) => {
+        console.log(re);
 
-    //     that.setData({
-    //       stList: stList
-    //     })
+        that.setData({
+          info: re.data.info,
+          icount: re.data.icount
+        })
         
-    //     wx.hideLoading();
-    //     if (sfsx) {
-    //       wx.stopPullDownRefresh();
-    //     }
-    //   }
-    // });
+        wx.hideLoading();
+        if (sfsx) {
+          wx.stopPullDownRefresh();
+        }
+      }
+    });
   },
   goMain(e) {
     wx.navigateTo({ url: '../main_map'});
@@ -97,6 +86,6 @@ Page({
   },
 
   onPullDownRefresh() {
-    this.showStlist('', true);
+    this.showStlist(this.data.inputVal, true);
   },
 });

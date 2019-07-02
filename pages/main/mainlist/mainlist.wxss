@@ -49,6 +49,7 @@ page{
   font-size:15px;
   color:rgba(50,50,50,1);
   width:90%;
+  margin-bottom:5px;
 }
 
 .col-1{
@@ -56,6 +57,7 @@ page{
   color:rgba(50,50,50,1);
   display:table-cell; /*按照单元格的样式显示元素*/
   vertical-align:bottom; /*底对齐*/
+  margin-right:2px;
 }
 
 .w50{

@@ -1,7 +1,10 @@
 <view class="page">
     <view class="main_st weui-flex">
+      <view class="home" bindtap='goHome'>
+        <image src="/image/home.png" style="width:22px;height:22px;" mode="scaleToFill" />
+      </view>
       <view class="padding10">
-        <image src="/image/list-map.png" style="width:77px;height:92px;" mode="scaleToFill" />
+        <image src="/image/building.jpg" style="width:77px;height:92px;" mode="scaleToFill" />
       </view>
       <view class="padding10 main_detail">
         <view class="weui-flex">
@@ -11,7 +14,7 @@
             </view>
 
             <view class="flex-center">
-              <image src="/image/list-zc.png" style="width:35px;height:17px;" mode="scaleToFill" />
+              <image src="{{events > 0 ?'/image/list-yc.png':'/image/list-zc.png'}}" style="width:35px;height:17px;" mode="scaleToFill" />
             </view>
           </view>
           <view class="w50 flex_bottom">
@@ -20,7 +23,7 @@
             </view>
 
             <view class="col-1">
-              133
+              {{gksy}}
             </view>
             <view class="col-2">
               元
@@ -34,7 +37,7 @@
             </view>
 
             <view class="col-1">
-              56
+              {{ydl_day}}
             </view>
             <view class="col-2">
               kWh
@@ -42,11 +45,11 @@
           </view>
           <view class="w50 flex_bottom">
             <view>
-              实时功率：
+              最高负荷：
             </view>
 
             <view class="col-1">
-             56
+             {{zgfh}}
             </view>
             <view class="col-2">
               kW
@@ -61,7 +64,7 @@
             </view>
 
             <view class="col-1">
-              133
+              {{ydrl}}
             </view>
             <view class="col-2">
               kWp
@@ -73,9 +76,8 @@
             <view class="flex-center margin20">
                <image src="/image/detail-addr.png" style="width:11px;height:12px;" mode="scaleToFill" />
             </view>
-
             <view>
-              松江悟空路300号,松江悟空路300号
+              {{addr}}
             </view>
           </view>
         </view>
@@ -85,37 +87,142 @@
     <view class="main_cdqk">
       <view class="main_cdqk_text">
           <view class="margin10">
-            电站建设情况
+            电量及电费情况
+          </view>
+          <view class="selType main-flex">
+              <view class="sel {{type == 'day'? 'hover':''}}" data-type="day" ontap="reLine">
+                    日
+              </view>
+              <view class="ui_flex" >
+                <image src="/image/add_interval.png" style="width:1px;height:28px;" />
+              </view>
+              <view class="sel {{type == 'month'? 'hover':''}}" data-type="month" ontap="reLine">
+                    月
+              </view>
+              <view class="ui_flex" >
+                <image src="/image/add_interval.png" style="width:1px;height:28px;" />
+              </view>
+              <view class="sel {{type == 'year'? 'hover':''}}" data-type="year" ontap="reLine">
+                    年
+              </view>
           </view>
       </view>
-      <view>
-      <ec-canvas id="mychart-dom-bar2" canvas-id="mychart-bar2" ec="{{ec}}"></ec-canvas>
+      <view class="w100">
+        <view>
+        <ec-canvas id="mychart-dom-bar2" canvas-id="mychart-bar2" ec="{{ec}}"></ec-canvas>
+        </view>
+        <view class="dl_show">
+              <view class="dl_flex ">
+                  <view class="dl_squ1">
+                  </view>
+                  <view  class="dl_txt">
+                    尖
+                  </view>
+                  <view class="ui_flex w50">
+                    <view class="dl_num">
+                    {{dl_j}}
+                    </view>
+                    <view  class="dl_dw">
+                    kWh
+                    </view>
+                  </view>
+                  <view class="dl_num">
+                  22
+                  </view>
+                  <view class="dl_dw">
+                  元
+                  </view>
+             </view>
+             <view class="dl_flex ">
+                  <view class="dl_squ2">
+                  </view>
+                  <view  class="dl_txt">
+                    峰
+                  </view>
+                  <view class="ui_flex w50">
+                    <view class="dl_num">
+                    {{dl_f}}
+                    </view>
+                    <view  class="dl_dw">
+                    kWh
+                    </view>
+                  </view>
+                  <view class="dl_num">
+                  22
+                  </view>
+                  <view class="dl_dw">
+                  元
+                  </view>
+             </view>
+
+             <view class="dl_flex ">
+                  <view class="dl_squ3">
+                  </view>
+                  <view  class="dl_txt">
+                    平
+                  </view>
+                  <view class="ui_flex w50">
+                    <view class="dl_num">
+                       {{dl_p}}
+                    </view>
+                    <view  class="dl_dw">
+                     kWh
+                    </view>
+                  </view>
+                  <view class="dl_num">
+                  1
+                  </view>
+                  <view class="dl_dw">
+                  元
+                  </view>
+             </view>
+
+             <view class="dl_flex ">
+                  <view class="dl_squ4">
+                  </view>
+                  <view  class="dl_txt">
+                    谷
+                  </view>
+                  <view class="ui_flex w50">
+                    <view class="dl_num">
+                     {{dl_g}}
+                    </view>
+                    <view  class="dl_dw">
+                    kWh
+                    </view>
+                  </view>
+                  <view class="dl_num">
+                  222
+                  </view>
+                  <view class="dl_dw">
+                  元
+                  </view>
+             </view>
+        </view>
       </view>
     </view>
 
     <view class="main_cdqk">
       <view class="main_cdqk_text">
           <view class="margin10">
-            实时负荷
-          </view>
-
-          <view class="selType main-flex">
-              <view class="sel {{type == 'day'? 'hover':''}}" data-type="day" ontap="reLine">
-                    日
-              </view>
-              <view class="line">
-              </view>
-              <view class="sel {{type == 'month'? 'hover':''}}" data-type="month" ontap="reLine">
-                    月
-              </view>
-              <view class="line"></view>
-              <view class="sel {{type == 'year'? 'hover':''}}" data-type="year" ontap="reLine">
-                    年
-              </view>
+            实时负荷（kW）
           </view>
       </view>
-      <view>
+      <view class="container">
       <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ecLine}}"></ec-canvas>
       </view>
+    </view>
+
+    <view class="line">
+    </view>
+    <view class="main_cdqk">
+        <view class="main_cdqk_text">
+            <view class="margin10">
+              管控收益趋势（元）
+            </view>
+        </view>
+        <view class="container">
+          <ec-canvas id="mychart-dom-bar3" canvas-id="mychart-bar3" ec="{{ecLine2}}"></ec-canvas>
+        </view>
     </view>
 </view>

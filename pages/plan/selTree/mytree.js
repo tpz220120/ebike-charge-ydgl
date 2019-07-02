@@ -22,8 +22,12 @@ Component({
       var itemid = e.currentTarget.dataset.itemid;
       var type = e.currentTarget.dataset.type;
       var name = e.currentTarget.dataset.name;
+      var ce_cust_id = e.currentTarget.dataset.ce_cust_id;
+      var ce_res_id = e.currentTarget.dataset.ce_res_id;
+      var ce_res_class = e.currentTarget.dataset.ce_res_class;
       console.log('组件里点击的id: ' + itemid);
-      this.triggerEvent('tapitem', { itemid: itemid, type:type,name:name}, { bubbles: true, composed: true });
+      this.triggerEvent('tapitem', { itemid: itemid, type:type,name:name
+        , ce_cust_id: ce_cust_id, ce_res_id: ce_res_id, ce_res_class, ce_res_class}, { bubbles: true, composed: true });
     }
   },
 

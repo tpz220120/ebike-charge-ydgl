@@ -1,11 +1,11 @@
 <view>
-  <view class="flex tree_h tree_{{model.level}}">
+  <view style='padding-left: 40rpx;' class="flex tree_h tree_{{model.level}}">
         <view wx:if='{{ isBranch }}'>
           <view>
             <image src="{{open ? '/image/tree_less.png':'/image/tree_more.png'}}" style="width:15px;height:15px;" bindtap="toggle"/>
           </view>
         </view>
-        <view class="tree_image">
+        <view class="{{isBranch? 'tree_image':'tree_image2'}}">
           <block wx:if="{{model.type =='cons'}}">
               <image src="/image/tree_cons.png" style="width:15px;height:15px;" />
           </block>
@@ -22,12 +22,15 @@
               <image src="/image/tree_buro.png" style="width:15px;height:15px;" />
             </block>
         </view>
-        <view bindtap='tapItem' data-itemid='{{ model.id }}' data-name='{{ model.name }}' data-type='{{ model.type }}'>
+        <view bindtap='tapItem' data-itemid='{{ model.id }}' 
+        data-ce_cust_id='{{ model.ce_cust_id }}' 
+        data-ce_res_id='{{ model.ce_res_id }}'
+        data-ce_res_class='{{ model.ce_res_class }}' data-name='{{ model.name }}' data-type='{{ model.type }}'>
           {{ model.name }}
         </view>
   </view>
   <view class="tree_line"></view>
-  <view wx:if='{{ isBranch }}' hidden='{{ !open }}'>
+  <view style='padding-left: 40rpx;' wx:if='{{ isBranch }}' hidden='{{ !open }}'>
     <mytree wx:for='{{ model.childList }}' wx:key='id' model='{{ item }}'></mytree>
     <view class="tree_line"></view>
   </view>

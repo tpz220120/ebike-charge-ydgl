@@ -2,6 +2,13 @@ page{
   background:rgba(230,230,230,1);
 }
 
+.home{
+  position: absolute;
+  left:12px;
+  top:12px;
+  z-index: 100;
+}
+
 .main_st{
   height:112px;
   background:rgba(255,255,255,1);
@@ -63,17 +70,83 @@ page{
   margin-right:8px;
 }
 
-#mychart-dom-bar {
-  width: 100%;
-  height: 175px;
-  display: block;
+#mychart-dom-bar2 {
+  width: 45%;
+  height: 150px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-#mychart-dom-bar2 {
-  width: 100%;
-  height: 175px;
-  display: block;
+.w100{
+  width:100%;
+  height:150px;
+  position: relative;
 }
+
+.dl_show{
+  position: absolute;
+  top: 0;
+  left: 45%;
+  width:55%;
+  height:150px;
+}
+
+.dl_flex{
+  display: flex;
+  align-items: center;
+  margin-top:12px;
+  font-size:12px;
+  font-family:Helvetica_cyr-Oblique;
+  font-weight:normal;
+  color:rgba(100,100,100,1);
+}
+
+.dl_squ1{
+  width:10px;
+  height:10px;
+  background:rgba(48,144,255,1);
+  border-radius:2px;
+}
+
+.dl_squ2{
+  width:10px;
+  height:10px;
+  background:#49F5A9;
+  border-radius:2px;
+}
+
+.dl_squ3{
+  width:10px;
+  height:10px;
+  background:#F6E16A;
+  border-radius:2px;
+}
+
+.dl_squ4{
+  width:10px;
+  height:10px;
+  background:#F6AF6A;
+  border-radius:2px;
+}
+
+.dl_txt{
+  font-family: PingFang-SC-Regular;
+  margin-left:10px;
+  margin-right:10px;
+}
+
+.dl_num{
+  color:rgba(127,148,255,1);
+  margin-right:2px;
+}
+
+.dl_dw{
+  font-size:8px;
+  color:#646464;
+}
+
+
 
 .main_cdqk{
   background:rgba(255,255,255,1);
@@ -84,7 +157,7 @@ page{
 }
 .main_cdqk_text{
   font-size:15px;
-  font-family:MicrosoftYaHei;
+  font-family:NotoSansHans-Regular;
   font-weight:400;
   color:rgba(50,50,50,1);
   display: flex;
@@ -125,4 +198,17 @@ page{
 .hover{
     background:rgba(82,145,255,1);
     color:rgba(255,255,255,1);
+}
+
+ec-canvas {
+  width: 100%;
+  height: 150px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
 }

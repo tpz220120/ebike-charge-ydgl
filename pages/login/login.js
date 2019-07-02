@@ -48,22 +48,24 @@ Page({
           } else if (re.data.status == '0'){
             app.globalData.hasLogin=true;
             app.globalData.user_no = re.data.user_no;
-            app.globalData.org_no = re.data.org_no;
+            app.globalData.user_org_no = re.data.org_no;
             app.globalData.user_name = re.data.user_name;
-            app.globalData.org_name = re.data.org_name;
+            app.globalData.user_org_name = re.data.org_name;
 
             console.log('login');
-            if (re.data.org_no == app.globalData.pt_org_no){
+            //如果是运营商级别的登录的话，直接跳转到运营商首页，否则到用户首页
+            // if (re.data.org_no == app.globalData.pt_org_no){
                 app.globalData.sfpt = '1';
-                app.globalData.org_no = '';//如果是平台登录的话
-                wx.navigateTo({ url: '../main/main'});
-            }else{
-              wx.switchTab({
-                url: '../main/main_user',
-              });
-            }
-            
-            
+                wx.redirectTo({
+                  url: '../main/main',
+                });
+            // }else{
+            //   app.globalData.sfpt = '1';
+            //   app.globalData.org_no = '';//如果是平台登录的话
+            //   wx.switchTab({
+            //     url: '../main/main_user',
+            //   });
+            // }   
           } else  {
             wx.showModal({
               content: '用户名和密码不正确',

@@ -81,7 +81,6 @@
 
 .col_week{
   border-radius:5px;
-  
   font-size:12px;
   text-align:center;
   line-height:24px;
