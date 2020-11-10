@@ -1,8 +1,8 @@
 <view class="page">
     <view class="main_st weui-flex">
-      <view class="home" bindtap='goHome'>
+      <!-- <view class="home" bindtap='goHome'>
         <image src="/image/home.png" style="width:22px;height:22px;" mode="scaleToFill" />
-      </view>
+      </view> -->
       <view class="padding10">
         <image src="/image/building.jpg" style="width:77px;height:92px;" mode="scaleToFill" />
       </view>
@@ -37,7 +37,12 @@
             </view>
 
             <view class="col-1">
-              {{ydl_day}}
+              <block wx:if="{{ydl_day == '0E-8'}}">
+                - -
+              </block>
+              <block wx:else>
+                {{ydl_day}}
+              </block>
             </view>
             <view class="col-2">
               kWh
@@ -49,7 +54,12 @@
             </view>
 
             <view class="col-1">
-             {{zgfh}}
+              <block wx:if="{{zgfh == '0E-8'}}">
+                - -
+              </block>
+              <block wx:else>
+                {{zgfh}}
+              </block>
             </view>
             <view class="col-2">
               kW
@@ -127,10 +137,10 @@
                     </view>
                   </view>
                   <view class="dl_num">
-                  22
+                  
                   </view>
                   <view class="dl_dw">
-                  元
+                  
                   </view>
              </view>
              <view class="dl_flex ">
@@ -148,10 +158,10 @@
                     </view>
                   </view>
                   <view class="dl_num">
-                  22
+                  
                   </view>
                   <view class="dl_dw">
-                  元
+                  
                   </view>
              </view>
 
@@ -170,10 +180,10 @@
                     </view>
                   </view>
                   <view class="dl_num">
-                  1
+                  
                   </view>
                   <view class="dl_dw">
-                  元
+                  
                   </view>
              </view>
 
@@ -192,10 +202,10 @@
                     </view>
                   </view>
                   <view class="dl_num">
-                  222
+                  
                   </view>
                   <view class="dl_dw">
-                  元
+                  
                   </view>
              </view>
         </view>

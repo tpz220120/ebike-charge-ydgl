@@ -41,11 +41,11 @@
 }
 
 .wd70{
-  width:75%;
+  width:70%;
 }
 
 .wd30{
-  width:25%;
+  width:30%;
   font-size:12px;
 }
 

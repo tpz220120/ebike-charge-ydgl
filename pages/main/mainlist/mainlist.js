@@ -53,6 +53,7 @@ Page({
       title: '正在加载中',
     })
     let that = this;
+    console.log(app.globalData.user_org_no);
     wx.request({
       url: app.httpUrl + '/cust/getCustList.x', // 该url是自己的服务地址，实现的功能是服务端拿到authcode去开放平台进行token验证
       data: {

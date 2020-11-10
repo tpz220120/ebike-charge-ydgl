@@ -1,0 +1,124 @@
+<view class="page">
+  <view class="ui_flex_c line">
+    <view class="ui_flex_c">
+      <image src="/image/kt/user.png" style="width:12.5px;height:15px"></image>
+    </view>
+    <view class="text">
+      用户：{{cust_name}}
+    </view>
+    <view class="ui_flex_c">
+      <image src="/image/kt/num.png" style="width:15px;height:15px"></image>
+    </view>
+    <view class="text">
+      空调：{{count}}台
+    </view>
+  </view>
+  <block wx:if="{{count > 0}}">
+    <view class="ui_flex_c list">
+      <view>
+          <picker bindchange="bindPickerChange" value="{{sel}}" 
+            range="{{custList}}" range-key="name">
+              {{sel_name}}
+          </picker>
+      </view>
+      <view class="ui_flex_c text">
+        <image src="/image/kt/sel.png" style="width:5px;height:10px"></image>
+      </view>
+
+    </view>
+    <view class="status" bindtap="changePower">
+      <image src="{{info.power == '1'? '/image/kt/on.png' : '/image/kt/close.png'}}" style="width:40px;height:40px"></image>
+    </view>
+    <view class="show">
+        <view class="circle">
+            <image src="{{info.power == '1'? '/image/kt/circle.png' : '/image/kt/circle_off.png'}}" style="width:60vw;height:53.5vw"></image>
+        </view>
+        <view class="temp">
+             <block wx:if="{{info.power == '1'}}">
+             {{info.temp}}°C
+             </block>
+             <block wx:else>
+
+             </block>
+        </view>
+        <view class="modal">
+            <block wx:if="{{info.power == '1'}}">
+             {{info.modeName}}
+             </block>
+             <block wx:else>
+             </block>
+        </view>
+        <view class="ui_flex_center img" wx:if="{{info.power == '1'}}">
+            <view class="content end">
+              <block wx:if="{{info.mode == '0'}}">
+                <image src="/image/kt/status_auto.png" style="width:30px;height:30px"></image>
+              </block>
+              <block wx:if="{{info.mode == '1'}}">
+                <image src="/image/kt/status_cold.png" style="width:30px;height:30px"></image>
+              </block>
+              <block wx:if="{{info.mode == '2'}}">
+                <image src="/image/kt/status_moist.png" style="width:30px;height:30px"></image>
+              </block>
+              <block wx:if="{{info.mode == '3'}}">
+                <image src="/image/kt/status_wind.png" style="width:30px;height:30px"></image>
+              </block>
+              <block wx:if="{{info.mode == '4'}}">
+                <image src="/image/kt/status_hot.png" style="width:30px;height:30px"></image>
+              </block>
+            </view>
+            <view class="end">
+            <block wx:if="{{info.wind == 0}}">
+                <view class="speed" style="height:26rpx">
+                </view>
+                <view class="speed" style="height:36rpx">
+                </view>
+                <view class="speed" style="height:46rpx">
+                </view>
+            </block>
+            <block wx:if="{{info.wind == 1}}">
+                <view class="speed_on" style="height:26rpx">
+                </view>
+                <view class="speed" style="height:36rpx">
+                </view>
+                <view class="speed" style="height:46rpx">
+                </view>
+            </block>
+            <block wx:if="{{info.wind == 2}}">
+                <view class="speed_on" style="height:26rpx">
+                </view>
+                <view class="speed_on" style="height:36rpx">
+                </view>
+                <view class="speed" style="height:46rpx">
+                </view>
+            </block>
+            <block wx:if="{{info.wind == 3}}">
+                <view class="speed_on" style="height:26rpx">
+                </view>
+                <view class="speed_on" style="height:36rpx">
+                </view>
+                <view class="speed_on" style="height:46rpx">
+                </view>
+            </block>
+            </view>
+        </view>
+
+        <view class="ui_flex_center c_modal" wx:if="{{info.power == '1'}}">
+            <image src="/image/kt/modal_plus.png" bindtap ="changeMode" data-t= 'plus' style="width:30px;height:30px"></image>
+            <view class="c_speed_common c_modal_text">
+                 <picker bindchange="bindPickerChangeM" value="{{info.mode}}" 
+                    range="{{modalList}}" range-key="name">
+                      模式
+                 </picker>
+            </view>
+            <image src="/image/kt/modal_add.png" bindtap ="changeMode" data-t= 'add' style="width:30px;height:30px"></image>
+        </view>
+        <view class="ui_flex_center c_speed" wx:if="{{info.power == '1'}}">
+            <image src="/image/kt/speed_plus.png" bindtap ="changeWind" data-t= 'plus' style="width:30px;height:30px"></image>
+            <view class="c_speed_common c_speed_text">
+                风速
+            </view>
+            <image src="/image/kt/speed_add.png" bindtap ="changeWind" data-t= 'add' style="width:30px;height:30px"></image>
+        </view>
+    </view>
+    </block>
+</view>

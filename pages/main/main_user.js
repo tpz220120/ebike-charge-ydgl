@@ -36,11 +36,11 @@ Page({
    */
   onLoad: function () {
     this.setData({
-      id: app.globalData.ce_cust_id
+      id: ''
     });
 
     wx.setNavigationBarTitle({
-      title: app.globalData.ce_cust_name
+      title: '测试abc'
     })
   },
 

@@ -18,7 +18,7 @@ page{
 
 .main_st{
   margin:10px;
-  height:112px;
+  min-height:112px;
   background:rgba(255,255,255,1);
   border:1px solid rgba(230,230,230,1);
   box-shadow:0px 5px 10px 0px rgba(10,31,51,0.2); 

@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/login/login",
+    "pages/fhkz/fhkz",
     "pages/main/main",
     "pages/main/main_user",
     "pages/control/control",
@@ -45,8 +46,8 @@
         "selectedIconPath": "image/control_on.png"
       },
       {
-        "pagePath": "pages/analyse/analyse",
-        "text": "数据分析",
+        "pagePath": "pages/fhkz/fhkz",
+        "text": "负荷响应",
         "iconPath": "image/analyse_off.png",
         "selectedIconPath": "image/analyse_on.png"
       },

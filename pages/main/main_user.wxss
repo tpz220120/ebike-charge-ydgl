@@ -10,7 +10,7 @@ page{
 }
 
 .main_st{
-  height:112px;
+  min-height:112px;
   background:rgba(255,255,255,1);
   font-size:12px;
   font-family:MicrosoftYaHei;

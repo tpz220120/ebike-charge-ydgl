@@ -2,9 +2,9 @@
 //import touch from 'pages/plan/touch.js'//新加
 
 App({
-  //httpUrl: 'https://xcx.ebike-charge.com',//生产
-   httpUrl: 'https://xcxbeta.ebike-charge.com/iesms-xcx',//测试
-   //httpUrl: 'https://iesmsappletbeta.ebike-charge.com/iesms-xcx',
+  httpUrl: 'https://xcx.ebike-charge.com/iesms-xcx',//生产
+  //httpUrl: 'https://xcxbeta.ebike-charge.com/iesms-xcx',//测试
+  //httpUrl: 'https://iesmsappletbeta.ebike-charge.com/iesms-xcx',
   // let 区块内部参数定义，只在定义的地方生效
   // var 可不初始化调用，不初始化默认为undefined 可以修改
   // const 不可修改参数定义，要初始化

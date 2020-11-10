@@ -26,6 +26,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(2222);
     var now = new Date();
     var year = now.getFullYear();       //年
     var month = now.getMonth() + 1;     //月
@@ -41,6 +42,7 @@ Page({
  * 生命周期函数--监听页面显示
  */
   onShow: function () {
+    console.log(1313);
     this.echartsComponnet = this.selectComponent('#mychart-dom-bar');
     this.echartsComponnet2 = this.selectComponent('#mychart-dom-bar2');
     this.showBaseData();//展示基础数据
@@ -59,13 +61,13 @@ Page({
     } else if (type == 'analyse') {
       wx.showModal({
         title: '提示',
-        content: '跳转到运营分析页面',
+        content: '此功能待发布，敬请期待！',
         showCancel:false,
       })
     } else if (type == 'alarm') {
       wx.showModal({
         title: '提示',
-        content: '跳转到告警页面',
+        content: '此功能待发布，敬请期待！',
         showCancel: false,
       })
     }

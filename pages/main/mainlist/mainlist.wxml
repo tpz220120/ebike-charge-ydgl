@@ -23,16 +23,16 @@
   </view>
 
   <view class="main_lb"> 
-      <view wx:if="{{icount > 0}}" class="main_st weui-flex">
+      <view wx:if="{{icount > 0}}" wx:for="{{info}}" wx:key="id" class="main_st weui-flex">
           <view class="padding10">
               <image src="/image/building.jpg" style="width:77px;height:92px;" mode="scaleToFill" />
           </view>
-          <view wx:for="{{info}}" wx:key="id" class="padding10 main_detail">
+          <view class="padding10 main_detail" bindtap="goUserMain" data-id="{{item.id}}" data-name="{{item.name}}">
                 <view class="weui-flex">
                     <view class="title">
                       {{item.name}}
                     </view>
-                    <view class="flex-center" bindtap="goUserMain" data-id="{{item.id}}" data-name="{{item.name}}">
+                    <view class="flex-center">
                       <image src="/image/list-link.png" style="width:9px;height:15px;" mode="scaleToFill" />
                     </view>
                 </view>
@@ -53,7 +53,12 @@
                         实时负荷：
                       </view>
                       <view class="col-1">
-                        {{item.ssfh}} 
+                        <block wx:if="{{item.ssfh == '0E-8'}}">
+                          - -
+                        </block>
+                        <block wx:else>
+                          {{item.ssfh}}
+                        </block>
                       </view>
                       <view>
                         kW
@@ -66,7 +71,12 @@
                         当日用电：
                       </view>
                       <view class="col-1">
-                        {{item.ydl_day}} 
+                        <block wx:if="{{item.ydl_day == '0E-8'}}">
+                          - -
+                        </block>
+                        <block wx:else>
+                          {{item.ydl_day}}
+                        </block>
                       </view>
                       <view>
                         kWh
@@ -77,7 +87,12 @@
                          当月用电：
                       </view>
                       <view class="col-1">
-                        {{item.ydl_month}} 
+                         <block wx:if="{{item.ydl_month == '0E-8'}}">
+                          - -
+                        </block>
+                        <block wx:else>
+                          {{item.ydl_month}}
+                        </block>
                       </view>
                       <view>
                         kWh
@@ -90,7 +105,12 @@
                         当年用电：
                       </view>
                       <view class="col-1">
-                        {{item.ydl_year}} 
+                        <block wx:if="{{item.ydl_year == '0E-8'}}">
+                          - -
+                        </block>
+                        <block wx:else>
+                          {{item.ydl_year}}
+                        </block>
                       </view>
                       <view>
                         kWh

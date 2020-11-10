@@ -5,16 +5,28 @@
 	},
 	"setting": {
 		"urlCheck": true,
+		"scopeDataCheck": false,
+		"coverView": true,
 		"es6": true,
 		"postcss": true,
+		"compileHotReLoad": false,
+		"preloadBackgroundData": false,
 		"minified": true,
+		"autoAudits": false,
 		"newFeature": true,
-		"autoAudits": false
+		"uglifyFileName": false,
+		"uploadWithSourceMap": true,
+		"useIsolateContext": true,
+		"nodeModules": false,
+		"enhance": false,
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": false,
+		"showShadowRootInWxmlPanel": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.6.4",
 	"appid": "wxbca7cc6fee042d65",
-	"projectname": "ebike-charge-ydgl",
+	"projectname": "iesms-ydgl",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

@@ -11,6 +11,17 @@ page {
   align-items: center;
 }
 
+.ui_flex_center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ui_flex_c{
+  display: flex;
+  align-items: center;
+}
+
 .line{
   height:5px;
   background-color: #F3F3F3;

@@ -61,7 +61,12 @@
           </view>
           <view >
               <view class="stat_num">
-                {{zgfh}}
+                 <block wx:if="{{zgfh == '0E-8'}}">
+                    - -
+                  </block>
+                  <block wx:else>
+                    {{zgfh}}
+                  </block>
               </view>
               <view>
                   最高负荷（kW）
@@ -90,7 +95,12 @@
           </view>
           <view >
               <view class="stat_num">
-                {{ydl_day}}
+                <block wx:if="{{ydl_day == '0E-8'}}">
+                    - -
+                  </block>
+                  <block wx:else>
+                    {{ydl_day}}
+                  </block>
               </view>
               <view>
                   当日用电（kWh）
@@ -103,7 +113,12 @@
           </view>
           <view >
               <view class="stat_num">
-                {{ydl_month}}
+                <block wx:if="{{ydl_month == '0E-8'}}">
+                    - -
+                  </block>
+                  <block wx:else>
+                    {{ydl_month}}
+                  </block>
               </view>
               <view>
                   当月用电（kWh）
@@ -116,7 +131,12 @@
           </view>
           <view >
               <view class="stat_num">
-                {{ydl_year}}
+                <block wx:if="{{ydl_year == '0E-8'}}">
+                    - -
+                  </block>
+                  <block wx:else>
+                    {{ydl_year}}
+                  </block>
               </view>
               <view>
                   当年用电（kWh）
